@@ -544,6 +544,9 @@
     font-family:inherit; font-size:14px; color:#000;
     background:#fff;
   }
+  .hw-modal input:disabled {
+    background:#f0f2f5; color:#666; cursor:not-allowed;
+  }
   .hw-modal textarea { min-height:80px; resize:vertical; }
   .hw-modal input:focus,
   .hw-modal textarea:focus,
@@ -728,6 +731,11 @@
     <h2 id="authTitle">Sign In</h2>
     <p id="authSubtitle">Sign in to access the BigPOS Onboarding Form</p>
 
+    <div id="authNameWrap" style="display:none;">
+      <label for="authDisplayName">Display Name</label>
+      <input type="text" id="authDisplayName" placeholder="Your full name" autocomplete="name">
+    </div>
+
     <label for="authEmail">Email</label>
     <input type="email" id="authEmail" placeholder="you@company.com" autocomplete="email">
 
@@ -807,7 +815,7 @@
           <th style="width:140px;">Display Name</th>
           <th style="width:100px;">Role</th>
           <th style="width:130px;">Created</th>
-          <th style="width:130px; text-align:right;">Actions</th>
+          <th style="width:180px; text-align:right;">Actions</th>
         </tr>
       </thead>
       <tbody id="adminUsersBody"></tbody>
@@ -862,8 +870,11 @@
     <input type="email" id="userModalEmail" placeholder="user@company.com">
     <label for="userModalDisplayName">Display Name</label>
     <input type="text" id="userModalDisplayName" placeholder="Full name">
-    <label for="userModalPassword">Temporary Password *</label>
+    <label for="userModalPassword" id="userModalPasswordLabel">Temporary Password *</label>
     <input type="password" id="userModalPassword" placeholder="Min 6 characters">
+    <div id="userModalPasswordHint" style="display:none;font-size:11px;color:#888;margin-top:4px;">
+      Leave blank to keep the current password unchanged.
+    </div>
     <label for="userModalRole">Role</label>
     <select id="userModalRole">
       <option value="user">User</option>
@@ -918,9 +929,9 @@
     <div class="page-footer">
       <div class="pf-logo"><img alt="BigPOS" data-bigpos-logo></div>
       <div class="pf-info">
-        <strong>Synergy Alliance Solutions Sdn. Bhd.</strong> (Formerly known as Synergy Alliance Sdn. Bhd.)<br>
-        No. 6, Jalan Perindustrian 1, Taman Perindustrian Ringan, 30200 Ipoh, Perak, Malaysia (Inc)<br>
-        T: 010-788-8888
+        <strong>Synergy Alliance Solutions Sdn. Bhd.</strong><br>
+        No. 8, Pusat Perniagaan Falim 6, Pusat Perniagaan Falim, 30200 Ipoh, Perak, Malaysia (HQ)<br>
+        T: 016-736-1888
       </div>
     </div>
   </div>
@@ -956,7 +967,7 @@
 
     <div class="page-footer">
       <div class="pf-logo"><img alt="BigPOS" data-bigpos-logo></div>
-      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong> (Formerly known as Synergy Alliance Sdn. Bhd.)<br>No. 6, Jalan Perindustrian 1, Taman Perindustrian Ringan, 30200 Ipoh, Perak, Malaysia (Inc)<br>T: 010-788-8888</div>
+      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong><br>No. 8, Pusat Perniagaan Falim 6, Pusat Perniagaan Falim, 30200 Ipoh, Perak, Malaysia (HQ)<br>T: 016-736-1888</div>
     </div>
   </div>
 
@@ -974,7 +985,7 @@
     </div>
     <div class="page-footer">
       <div class="pf-logo"><img alt="BigPOS" data-bigpos-logo></div>
-      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong> (Formerly known as Synergy Alliance Sdn. Bhd.)<br>No. 6, Jalan Perindustrian 1, Taman Perindustrian Ringan, 30200 Ipoh, Perak, Malaysia (Inc)<br>T: 010-788-8888</div>
+      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong><br>No. 8, Pusat Perniagaan Falim 6, Pusat Perniagaan Falim, 30200 Ipoh, Perak, Malaysia (HQ)<br>T: 016-736-1888</div>
     </div>
   </div>
 
@@ -1002,7 +1013,7 @@
 
     <div class="page-footer">
       <div class="pf-logo"><img alt="BigPOS" data-bigpos-logo></div>
-      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong> (Formerly known as Synergy Alliance Sdn. Bhd.)<br>No. 6, Jalan Perindustrian 1, Taman Perindustrian Ringan, 30200 Ipoh, Perak, Malaysia (Inc)<br>T: 010-788-8888</div>
+      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong><br>No. 8, Pusat Perniagaan Falim 6, Pusat Perniagaan Falim, 30200 Ipoh, Perak, Malaysia (HQ)<br>T: 016-736-1888</div>
     </div>
   </div>
 
@@ -1019,7 +1030,7 @@
     </p>
     <div class="page-footer">
       <div class="pf-logo"><img alt="BigPOS" data-bigpos-logo></div>
-      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong> (Formerly known as Synergy Alliance Sdn. Bhd.)<br>No. 6, Jalan Perindustrian 1, Taman Perindustrian Ringan, 30200 Ipoh, Perak, Malaysia (Inc)<br>T: 010-788-8888</div>
+      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong><br>No. 8, Pusat Perniagaan Falim 6, Pusat Perniagaan Falim, 30200 Ipoh, Perak, Malaysia (HQ)<br>T: 016-736-1888</div>
     </div>
   </div>
 
@@ -1067,7 +1078,7 @@
     </div>
     <div class="page-footer">
       <div class="pf-logo"><img alt="BigPOS" data-bigpos-logo></div>
-      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong> (Formerly known as Synergy Alliance Sdn. Bhd.)<br>No. 6, Jalan Perindustrian 1, Taman Perindustrian Ringan, 30200 Ipoh, Perak, Malaysia (Inc)<br>T: 010-788-8888</div>
+      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong><br>No. 8, Pusat Perniagaan Falim 6, Pusat Perniagaan Falim, 30200 Ipoh, Perak, Malaysia (HQ)<br>T: 016-736-1888</div>
     </div>
   </div>
 
@@ -1116,7 +1127,7 @@
 
     <div class="page-footer">
       <div class="pf-logo"><img alt="BigPOS" data-bigpos-logo></div>
-      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong> (Formerly known as Synergy Alliance Sdn. Bhd.)<br>No. 6, Jalan Perindustrian 1, Taman Perindustrian Ringan, 30200 Ipoh, Perak, Malaysia (Inc)<br>T: 010-788-8888</div>
+      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong><br>No. 8, Pusat Perniagaan Falim 6, Pusat Perniagaan Falim, 30200 Ipoh, Perak, Malaysia (HQ)<br>T: 016-736-1888</div>
     </div>
   </div>
 
@@ -1139,7 +1150,7 @@
     <p class="privacy-section"><strong>3. Governing Law.</strong> This terms and conditions shall be construed in accordance with the laws of the Malaysia.</p>
     <div class="page-footer">
       <div class="pf-logo"><img alt="BigPOS" data-bigpos-logo></div>
-      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong> (Formerly known as Synergy Alliance Sdn. Bhd.)<br>No. 6, Jalan Perindustrian 1, Taman Perindustrian Ringan, 30200 Ipoh, Perak, Malaysia (Inc)<br>T: 010-788-8888</div>
+      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong><br>No. 8, Pusat Perniagaan Falim 6, Pusat Perniagaan Falim, 30200 Ipoh, Perak, Malaysia (HQ)<br>T: 016-736-1888</div>
     </div>
   </div>
 
@@ -1157,7 +1168,7 @@
     <p class="privacy-section"><strong>11.</strong> Synergy Alliance Solutions Sdn Bhd have the right to change and amend the policies according to business needs without prior notice.</p>
     <div class="page-footer">
       <div class="pf-logo"><img alt="BigPOS" data-bigpos-logo></div>
-      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong> (Formerly known as Synergy Alliance Sdn. Bhd.)<br>No. 6, Jalan Perindustrian 1, Taman Perindustrian Ringan, 30200 Ipoh, Perak, Malaysia (Inc)<br>T: 010-788-8888</div>
+      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong><br>No. 8, Pusat Perniagaan Falim 6, Pusat Perniagaan Falim, 30200 Ipoh, Perak, Malaysia (HQ)<br>T: 016-736-1888</div>
     </div>
   </div>
 
@@ -1186,7 +1197,7 @@
 
     <div class="page-footer">
       <div class="pf-logo"><img alt="BigPOS" data-bigpos-logo></div>
-      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong> (Formerly known as Synergy Alliance Sdn. Bhd.)<br>No. 6, Jalan Perindustrian 1, Taman Perindustrian Ringan, 30200 Ipoh, Perak, Malaysia (Inc)<br>T: 010-788-8888</div>
+      <div class="pf-info"><strong>Synergy Alliance Solutions Sdn. Bhd.</strong><br>No. 8, Pusat Perniagaan Falim 6, Pusat Perniagaan Falim, 30200 Ipoh, Perak, Malaysia (HQ)<br>T: 016-736-1888</div>
     </div>
   </div>
 
@@ -1223,7 +1234,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getAuth, onAuthStateChanged, signInWithEmailAndPassword,
-  createUserWithEmailAndPassword, signOut
+  createUserWithEmailAndPassword, signOut, updateProfile
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
   getFirestore, collection, doc, getDoc, getDocs, setDoc, deleteDoc, updateDoc,
@@ -1741,6 +1752,7 @@ function updateAuthUI(){
   $('authSubmitBtn').textContent = isSignUpMode ? 'Create Account' : 'Sign In';
   $('authToggleText').textContent = isSignUpMode ? 'Already have an account?' : "Don't have an account?";
   $('authToggleLink').textContent = isSignUpMode ? 'Sign in' : 'Create one';
+  $('authNameWrap').style.display = isSignUpMode ? 'block' : 'none';
   $('authError').classList.remove('show');
 }
 
@@ -1753,9 +1765,11 @@ function showAuthError(msg){
 async function handleAuth(){
   const email = $('authEmail').value.trim();
   const pass  = $('authPassword').value;
+  const displayName = isSignUpMode ? ($('authDisplayName').value.trim()) : '';
   const err = $('authError');
   err.classList.remove('show');
   if (!email || !pass){ showAuthError('Please enter email and password.'); return; }
+  if (isSignUpMode && !displayName){ showAuthError('Please enter your display name.'); return; }
 
   $('authLoading').classList.add('show');
   $('authSubmitBtn').disabled = true;
@@ -1768,9 +1782,12 @@ async function handleAuth(){
         await setDoc(doc(db, 'users', u.uid), {
           email: email,
           role: 'user',
-          displayName: '',
+          displayName: displayName,
           createdAt: serverTimestamp()
         }, { merge: true });
+        try {
+          await updateProfile(u, { displayName: displayName });
+        } catch(e) { console.warn('updateProfile failed:', e); }
       }
     } else {
       await signInWithEmailAndPassword(auth, email, pass);
@@ -1983,21 +2000,31 @@ async function loadUsers(){
   $('usersLoading').style.display = 'block';
   tbody.innerHTML = '';
   try {
-    const snap = await getDocs(query(collection(db, 'users'), orderBy('createdAt', 'desc')));
-    const users = snap.docs.map(d => ({ uid: d.id, ...d.data() }));
+    const snap = await getDocs(collection(db, 'users'));
+    const users = snap.docs
+      .map(d => ({ uid: d.id, ...d.data() }))
+      .sort((a, b) => {
+        const ta = a.createdAt?.toDate ? a.createdAt.toDate().getTime() : 0;
+        const tb = b.createdAt?.toDate ? b.createdAt.toDate().getTime() : 0;
+        return tb - ta;
+      });
+    window._loadedUsers = users;
+
     if (!users.length) {
       tbody.innerHTML = `<tr><td colspan="5" class="hw-empty-row">No users found.</td></tr>`;
     } else {
       tbody.innerHTML = users.map(u => {
         const created = u.createdAt?.toDate ? u.createdAt.toDate().toLocaleDateString() : '—';
         const roleCls = u.role === 'admin' ? 'role-admin' : 'role-user';
+        const isPending = u.pending === true;
         return `
           <tr>
-            <td>${esc(u.email || '—')}</td>
+            <td>${esc(u.email || '—')} ${isPending ? '<span style="font-size:10px;color:#c04040;">(pending)</span>' : ''}</td>
             <td>${esc(u.displayName || '—')}</td>
             <td><span class="role-badge ${roleCls}">${esc(u.role || 'user')}</span></td>
             <td style="font-size:12px;color:#666;">${created}</td>
             <td class="actions-cell">
+              <button class="admin-btn admin-btn-ghost admin-btn-sm" data-edit-uid="${esc(u.uid)}" title="Edit">✏️ Edit</button>
               <button class="admin-btn admin-btn-danger admin-btn-sm" data-del-uid="${esc(u.uid)}">🗑 Delete</button>
             </td>
           </tr>`;
@@ -2011,25 +2038,83 @@ async function loadUsers(){
   }
 }
 
-function openUserModal(){
-  $('userModalTitle').textContent = 'Add New User';
-  $('userModalEmail').value = '';
-  $('userModalDisplayName').value = '';
-  $('userModalPassword').value = '';
-  $('userModalRole').value = 'user';
+// State to hold currently-edited user
+let editingUserUid = null;
+
+function openUserModal(mode = 'add', user = null){
+  editingUserUid = null;
+
+  if (mode === 'edit' && user) {
+    editingUserUid = user.uid;
+    $('userModalTitle').textContent = 'Edit User';
+    $('userModalEmail').value = user.email || '';
+    $('userModalEmail').disabled = true; // can't change email via client SDK
+    $('userModalDisplayName').value = user.displayName || '';
+    $('userModalPassword').value = '';
+    $('userModalPassword').placeholder = 'Leave blank to keep current';
+    $('userModalPasswordLabel').textContent = 'New Password';
+    $('userModalPasswordHint').style.display = 'block';
+    $('userModalRole').value = user.role || 'user';
+    $('userModalSave').textContent = 'Save Changes';
+  } else {
+    $('userModalTitle').textContent = 'Add New User';
+    $('userModalEmail').value = '';
+    $('userModalEmail').disabled = false;
+    $('userModalDisplayName').value = '';
+    $('userModalPassword').value = '';
+    $('userModalPassword').placeholder = 'Min 6 characters';
+    $('userModalPasswordLabel').textContent = 'Temporary Password *';
+    $('userModalPasswordHint').style.display = 'none';
+    $('userModalRole').value = 'user';
+    $('userModalSave').textContent = 'Create User';
+  }
+
   $('userModal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
 function closeUserModal(){
+  editingUserUid = null;
   $('userModal').classList.remove('open');
   document.body.style.overflow = '';
 }
+
 async function saveUserModal(){
   const email = $('userModalEmail').value.trim();
   const name  = $('userModalDisplayName').value.trim();
   const pass  = $('userModalPassword').value;
   const role  = $('userModalRole').value;
 
+  // ═══ EDIT MODE ═══
+  if (editingUserUid) {
+    if (!name) { showToast('Display name is required','error'); return; }
+    if (pass && pass.length < 6) { showToast('Password must be at least 6 characters','error'); return; }
+
+    try {
+      const updates = { displayName: name, role };
+      await updateDoc(doc(db, 'users', editingUserUid), updates);
+
+      if (pass) {
+        showToast('Profile updated. Note: password change requires Firebase Console.', 'success');
+        alert(
+          'Profile saved.\n\n' +
+          'However, changing another user\'s PASSWORD requires the Firebase Admin SDK.\n\n' +
+          'To change ' + email + '\'s password, go to:\n' +
+          'Firebase Console → Authentication → Users → ' + email + ' → Reset password'
+        );
+      } else {
+        showToast('User updated ✓','success');
+      }
+      closeUserModal();
+      loadUsers();
+    } catch (e) {
+      console.error(e);
+      showToast('Update failed: ' + e.message, 'error');
+    }
+    return;
+  }
+
+  // ═══ ADD MODE ═══
   if (!email || !pass) { showToast('Email and password are required','error'); return; }
   if (pass.length < 6) { showToast('Password must be at least 6 characters','error'); return; }
 
@@ -2040,7 +2125,15 @@ async function saveUserModal(){
       createdAt: serverTimestamp(),
       pending: true
     });
-    showToast('User record created (invite pending)','success');
+    showToast('Profile saved. Now add this user in Firebase Auth console.', 'success');
+    alert(
+      'IMPORTANT: This only saved a profile record.\n\n' +
+      'To enable login for ' + email + ', you must ALSO:\n' +
+      '1. Go to Firebase Console → Authentication → Users → Add user\n' +
+      '2. Create the account with the same email and password\n' +
+      '3. Copy the new UID\n' +
+      '4. Replace this pending doc with a doc using that UID (remove the "pending" field)'
+    );
     closeUserModal();
     loadUsers();
   } catch (e) {
@@ -2049,16 +2142,27 @@ async function saveUserModal(){
   }
 }
 
-$('adminAddUserBtn').addEventListener('click', openUserModal);
+$('adminAddUserBtn').addEventListener('click', () => openUserModal('add'));
 $('userModalCancel').addEventListener('click', closeUserModal);
 $('userModalSave').addEventListener('click', saveUserModal);
 $('userModal').addEventListener('click', e => { if (e.target === $('userModal')) closeUserModal(); });
 
 $('adminUsersBody').addEventListener('click', async e => {
+  // EDIT
+  const editBtn = e.target.closest('[data-edit-uid]');
+  if (editBtn) {
+    const uid = editBtn.dataset.editUid;
+    const user = (window._loadedUsers || []).find(u => u.uid === uid);
+    if (!user) { showToast('User not found','error'); return; }
+    openUserModal('edit', user);
+    return;
+  }
+
+  // DELETE
   const delBtn = e.target.closest('[data-del-uid]');
   if (!delBtn) return;
   const uid = delBtn.dataset.delUid;
-  if (!confirm('Delete this user record from Firestore?')) return;
+  if (!confirm('Delete this user record from Firestore?\n\nNote: This does NOT delete the Firebase Auth account. To fully remove them, also delete from Firebase Console → Authentication → Users.')) return;
   try {
     await deleteDoc(doc(db, 'users', uid));
     showToast('User record deleted','success');
